@@ -9,6 +9,7 @@ public class Book {
     int quantity;
 
     public Book() {
+        authors = new Author[0];
     }
 
     public String bookName() {
@@ -28,7 +29,11 @@ public class Book {
         this.authors = authors;
         return this;
     }
-
+public void  addAuthor(Author author){
+    Author[] newAuthors = Arrays.copyOf(authors, authors.length+1); //Скопировать autrhors в newAuthors, где на одну ячейку больше
+    newAuthors[newAuthors.length-1] = author; //Добавить в эту ячейку author из параметра метода
+    authors = newAuthors; //Скопировать ссылку newAuthors в authors
+}
     public int publisedYear() {
         return publisedYear;
     }
