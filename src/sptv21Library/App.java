@@ -53,10 +53,30 @@ public class App {
                     System.out.println("4. Забрать книгу");
                     history.setReturnBook(new GregorianCalendar().getTime());
                     System.out.println(history);
+                case 5:
+                    System.out.println("5. Добвлание книги и автора");
+                    Scanner scanner1 = new Scanner(System.in);
+                    System.out.println("Название кники");
+                    int bookname = scanner1.nextInt();
+                    System.out.println("Колл-во книг");
+                    int quantity = scanner1.nextInt();
+                    System.out.println("Дата выхода");
+                    int publishedYear = scanner1.nextInt();
+                    System.out.println("Имя автора");
+                    int firstname = scanner1.nextInt();
+                    System.out.println("Фамилия автора");
+                    int lastname = scanner1.nextInt();
+                    System.out.println("Год рождения");
+                    int birthday = scanner1.nextInt();
+
+
+
+
+
+
 
                 default:
                     System.out.println("Выберите задачц из списка");
-
             }
 
         }while (repeat);
@@ -78,5 +98,4 @@ public class App {
         return author;
 
     }
-
 }
