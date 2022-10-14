@@ -22,9 +22,8 @@ public class App {
             System.out.println("2. Добавить читателя");
             System.out.println("3. Выдать книгу");
             System.out.println("Выберите задачу");
-
+            
             int task = scanner.nextInt();
-
             scanner.nextLine();
             switch (task) {
                 case 0:
