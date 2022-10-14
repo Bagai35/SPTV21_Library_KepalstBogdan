@@ -1,46 +1,48 @@
+
+
 package Entity;
 
+
 public class Author {
-    String firstname;
-    String lastname;
-    int birthday;
+    private String firstname;
+    private String lastname;
+    private int birthday;
 
     public Author() {
     }
 
-    public String firstname() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public Author setFirstname(String firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
-        return this;
     }
 
-    public String lastname() {
+    public String getLastname() {
         return lastname;
     }
 
-    public Author setLastname(String lastname) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
-        return this;
     }
 
-    public int birthday() {
+    public int getBirthday() {
         return birthday;
     }
 
-    public Author setBirthday(int birthday) {
+    public void setBirthday(int birthday) {
         this.birthday = birthday;
-        return this;
     }
 
     @Override
     public String toString() {
-        return "Author{"
-                + "firstname='" + firstname + '\''
-                + ", lastname='" + lastname + '\''
-                + ", birthday=" + birthday
+        return "Author{" 
+                + "firstname=" + firstname 
+                + ", lastname=" + lastname 
+                + ", birthday=" + birthday 
                 + '}';
     }
+    
+
 }

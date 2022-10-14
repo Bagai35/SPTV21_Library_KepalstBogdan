@@ -1,30 +1,32 @@
+
+
 package sptv21Library;
 
 import Entity.Author;
 import Entity.Book;
 import Entity.History;
 import Entity.Reader;
-
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
+
 public class App {
+    private Book[] books;
+
     public void run(){
         Scanner scanner = new Scanner(System.in);
         boolean repeat = true;
-        Book book = null;
+        books = new Book[0];
         Reader reader = null;
         History history = null;
         do{
-            System.out.println("задачи:");
-            System.out.println("0. Выключить программу");
+            System.out.println("Задачи: ");
+            System.out.println("0. Закончить программу");
             System.out.println("1. Добавить книгу");
             System.out.println("2. Добавить читателя");
             System.out.println("3. Выдать книгу");
             System.out.println("4. Вернуть книгу");
-            System.out.println("5. Добавить книгу(ручное заполение)");
-            System.out.println("Выберите задачу");
-            
+            System.out.print("Выберите задачу: ");
             int task = scanner.nextInt();
             scanner.nextLine();
             switch (task) {
@@ -33,17 +35,34 @@ public class App {
                     break;
                 case 1:
                     System.out.println("1. Добавить книгу");
-                    book = createBook("Война и мир", 3, 1956);
-                    book.addAuthor(createAuthor("Лев", "Толстой", 1828));
-                    System.out.println(book);
+                    System.out.println("Введите название книги: ");
+                    String bookName = scanner.nextLine();
+                    System.out.println("Введите год издания книги:");
+                    String publishedYear = scanner.nextLine();
+                    System.out.println("Введите колл-во экземпляров:");
+                    String quantity = scanner.nextLine();
+                    Book book = createBook(bookName, new Integer(quantity), Integer.parseInt(publishedYear));
+                    System.out.println("Введите колл-во авторов книги: ");
+                    int countAuthorsInBook = scanner.nextInt();scanner.nextLine();
+
+                    for (int i = 0; i<countAuthorsInBook; i++){
+                        System.out.println("Введите имя автора: "+(i+1)+": ");
+                        String firstname = scanner.nextLine();
+                        System.out.println("Введите фамилию автора: "+(i+1)+": ");
+                        String lastname = scanner.nextLine();
+                        System.out.println("Введите дату рождения автора: "+(i+1)+": ");
+                        String birthday = scanner.nextLine();
+                        book.addAuthor(createAuthor(firstname, lastname, Integer.parseInt(birthday)));
+                    }
+
                     break;
                 case 2:
                     System.out.println("2. Добавить читателя");
                     reader = new Reader();
-                    reader.setFirstname("Иван");
-                    reader.setLastname("Иванов");
+                    reader.setFirstname("Ivan");
+                    reader.setLastname("Ivanov");
                     reader.setPhone("5656565656");
-                    System.out.println(reader);
+                    break;
                 case 3:
                     System.out.println("3. Выдать книгу");
                     history = new History();
@@ -51,42 +70,23 @@ public class App {
                     history.setReader(reader);
                     history.setTakeOnBook(new GregorianCalendar().getTime());
                     System.out.println(history);
-                case 4:
-                    System.out.println("4. Забрать книгу");
+                    break;
+                case 4: 
+                    System.out.println("4. Вернуть книгу");
                     history.setReturnBook(new GregorianCalendar().getTime());
                     System.out.println(history);
-                case 5:
-                    System.out.println("5 - Добавить книгу (ручное заполение)");
-                    System.out.println("Введите название книги: ");
-                    String bookname = scanner.nextLine();
-                    System.out.println("Введите количество книг: ");
-                    int quantity = scanner.nextInt();
-                    System.out.println("Введите год издания книги: ");
-                    int year = scanner.nextInt();
-
-                    System.out.println("Введите имя автора ");
-                    String authorname = scanner.nextLine();
-                    System.out.println("Введите фамилию автора: ");
-                    String authorlastname = scanner.nextLine();
-                    System.out.println("Введите год рождения автора: ");
-                    int birthday = scanner.nextInt();
-
-                    book = createBook(bookname, quantity, year);
-                    book.addAuthor(createAuthor(authorname, authorlastname, birthday));
-                    System.out.println(book);
-
+                    break;
                 default:
-                    System.out.println("Выберите задачц из списка");
+                    System.out.println("Выберите задачу из списка!");;
             }
-
-        }while (repeat);
-        System.out.println("Закрытие программы, бб:)");
-
+            
+        }while(repeat);
+        System.out.println("Закрытие программы, досвидания!");
     }
-    public Book createBook(String bookName, int quantity, int publishedYear){
+    public Book createBook(String bookName,int quantity, int publishedYear){
         Book book = new Book();
         book.setBookName(bookName);
-        book.setPublisedYear(publishedYear);
+        book.setPublishedYear(publishedYear);
         book.setQuantity(quantity);
         return book;
     }

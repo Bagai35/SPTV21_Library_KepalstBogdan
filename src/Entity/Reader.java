@@ -1,46 +1,47 @@
+
+
 package Entity;
 
+
 public class Reader {
-    String firstname;
-    String lastname;
-    String phone;
+    private String firstname;
+    private String lastname;
+    private String phone;
 
     public Reader() {
     }
 
-    public String firstname() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public Reader setFirstname(String firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
-        return this;
     }
 
-    public String lastname() {
+    public String getLastname() {
         return lastname;
     }
 
-    public Reader setLastname(String lastname) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
-        return this;
     }
 
-    public String phone() {
+    public String getPhone() {
         return phone;
     }
 
-    public Reader setPhone(String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
-        return this;
     }
 
     @Override
     public String toString() {
-        return "Reader{"
-                + "firstname='" + firstname + '\''
-                + ", lastname='" + lastname + '\''
-                + ", phone='" + phone + '\''
+        return "Reader{" 
+                + "firstname=" + firstname 
+                + ", lastname=" + lastname 
+                + ", phone=" + phone 
                 + '}';
     }
+    
 }
