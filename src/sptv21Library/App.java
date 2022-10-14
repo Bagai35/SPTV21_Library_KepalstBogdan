@@ -55,26 +55,25 @@ public class App {
                     history.setReturnBook(new GregorianCalendar().getTime());
                     System.out.println(history);
                 case 5:
-                    System.out.println("5. Добвлание книги и автора");
-                    Scanner scanner1 = new Scanner(System.in);
-                    System.out.println("Название кники");
-                    int bookname = scanner1.nextInt();
-                    System.out.println("Колл-во книг");
-                    int quantity = scanner1.nextInt();
-                    System.out.println("Дата выхода");
-                    int publishedYear = scanner1.nextInt();
-                    System.out.println("Имя автора");
-                    int firstname = scanner1.nextInt();
-                    System.out.println("Фамилия автора");
-                    int lastname = scanner1.nextInt();
-                    System.out.println("Год рождения");
-                    int birthday = scanner1.nextInt();
+                    System.out.println("5 - Добавить книгу (ручное заполение)");
 
+                    System.out.println("Введите название книги: ");
+                    String bookname = scanner.nextLine();
+                    System.out.println("Введите количество книг: ");
+                    int quantity = scanner.nextInt();
+                    System.out.println("Введите год издания книги: ");
+                    int year = scanner.nextInt();
 
+                    System.out.println("Введите имя автора ");
+                    String authorname = scanner.nextLine();
+                    System.out.println("Введите фамилию автора: ");
+                    String authorlastname = scanner.nextLine();
+                    System.out.println("Введите год рождения автора: ");
+                    int birthday = scanner.nextInt();
 
-
-
-
+                    book = createBook(bookname, quantity, year);
+                    book.addAuthor(createAuthor(authorname, authorlastname, birthday));
+                    System.out.println(book);
 
                 default:
                     System.out.println("Выберите задачц из списка");
@@ -97,6 +96,5 @@ public class App {
         author.setFirstname(firstname);
         author.setLastname(lastname);
         return author;
-
     }
 }
