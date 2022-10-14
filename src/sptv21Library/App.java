@@ -7,7 +7,6 @@ import Entity.Reader;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-
 public class App {
     private Book[] books;
     private Reader[] readers;
@@ -82,7 +81,7 @@ public class App {
                 case 3:
                     System.out.println("3. Выдать книгу");
                     for (int i=0; i<readers.length; i++){
-                        System.out.printf(i+1+". "+readers[i].getFirstname()+" "+readers[i].getLastname());
+                        System.out.printf(i+1+". "+readers[i].getFirstname()+" "+readers[i].getLastname()+". ");
                     }
                     System.out.print("Выбери читателя: ");
                     int numberReader = scanner.nextInt(); scanner.nextLine();
@@ -117,12 +116,13 @@ public class App {
                     System.out.println("Список выданных книг");
                     for (int i=0; i<histories.length; i++){
                         System.out.print(i+1+". "+histories[i].getBook().getBookName());
+                        System.out.println(" ");
                     }
                     break;
                 default:
                     System.out.println("Выберите задачу из списка!");;
             }
-            
+
         }while(repeat);
         System.out.println("Закрытие программы, досвидания!");
     }
