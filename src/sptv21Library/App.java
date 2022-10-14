@@ -24,6 +24,7 @@ public class App {
             System.out.println("Выберите задачу");
 
             int task = scanner.nextInt();
+
             scanner.nextLine();
             switch (task) {
                 case 0:
