@@ -134,6 +134,8 @@ public class App {
                         System.out.println(i+1+". "+readers[i]);
                     }
                     break;
+                case 8:
+
                 default:
                     System.out.println("Выберите задачу из списка!");;
             }
