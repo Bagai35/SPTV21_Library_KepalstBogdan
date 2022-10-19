@@ -135,6 +135,43 @@ public class App {
                     }
                     break;
                 case 8:
+                    System.out.println("8. Изменение читателя");
+                    System.out.println("Читатели:");
+                    for (int i=0; i<readers.length; i++) {
+                        System.out.println(i + 1 + ". " + readers[i]);
+                    }
+                    System.out.print("Введите номер читателя");
+                    int numreader= scanner.nextInt();
+                    numreader = numreader -1;
+                    System.out.println(numreader+1 + ". " + readers[numreader]);
+                    System.out.println("Выберите, что хотите поменять");
+                    System.out.println("1. Изменение имени");
+                    System.out.println("2. Изменение фамилии");
+                    System.out.println("3. Изменение номера телефона");
+                    System.out.println("4. Удалить читателя");
+                    int task2 = scanner.nextInt();
+                    switch (task2){
+                        case 1:
+                            System.out.println("Изменение имени");
+                            System.out.print("Введите новое имя:");
+                            String newReaderName = scanner.nextLine();
+                            reader.setFirstname(newReaderName);
+                            System.out.println("Изменения премененны: ");
+                            System.out.println(readers[numreader]);
+                            break;
+                        case 2:
+                            System.out.println("Изменение фамилии");
+                            System.out.print("Введите новую  фамилию:");
+                            String newReaderLastName = scanner.nextLine();
+                            reader.setLastname(newReaderLastName);
+                            System.out.println("Изменения примененны");
+                            System.out.println(readers[numreader]);
+                            break;
+                        case 3:
+                            System.out.println("Изменение");
+                            System.out.println("Введите новый номер");
+                            int newphone
+                    }
 
                 default:
                     System.out.println("Выберите задачу из списка!");;
