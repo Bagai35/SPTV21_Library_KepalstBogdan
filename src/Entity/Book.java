@@ -5,9 +5,19 @@ public class Book {
     private Author[] authors;
     private int publishedYear;
     private int quantity;
+    private String title;
 
     public Book() {
         authors = new Author[0];
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Book setTitle(String title) {
+        this.title = title;
+        return this;
     }
 
     public String getBookName() {
@@ -72,5 +82,6 @@ public class Book {
                 + ", quantity=" + quantity
                 + '}';
     }
+
 
 }
