@@ -29,9 +29,10 @@ public class App {
         readerManager = new ReaderManager();
         historyManager = new HistoryManager();
     }
-    public void run() {
+
+    public void run(){
         boolean repeat = true;
-        do {
+        do{
             System.out.println("Задачи: ");
             System.out.println("0. Закончить программу");
             System.out.println("1. Добавить книгу");
@@ -51,49 +52,53 @@ public class App {
                     break;
                 case 1:
                     System.out.println("1. Добавить книгу");
-                    this.books = Arrays.copyOf(this.books, this.books.length + 1);
-                    this.books[this.books.length - 1] = bookManager.createBookWithAuthot();
+                    addBook(bookManager.createBookWithAuthot());
+
                     break;
                 case 2:
-                    System.out.println("2. Добавление читателя");
-                    this.readers = Arrays.copyOf(this.readers, this.readers.length + 1);
-                    this.readers[this.readers.length - 1] = readerManager.createReader();
+                    System.out.println("2. Добавить читателя");
+                    addReader(readerManager.createReader());
                     break;
                 case 3:
                     System.out.println("3. Выдать книгу");
-                    this.histories = Arrays.copyOf(this.histories, this.histories.length + 1);
-                    this.histories[this.histories.length - 1] = historyManager.takeOnBook(readers, books);
+                    addHistory(historyManager.takeOnBook(books, readers));
                     break;
                 case 4:
                     System.out.println("4. Вернуть книгу");
-                    historyManager.returnBook(histories);
+                    histories = historyManager.returnBook(histories);
                     break;
                 case 5:
                     System.out.println("5. Список выданных книг");
-                    historyManager.printListReadingBooks(histories);
+                    historyManager.printReadingBooks(histories);
                     break;
                 case 6:
                     System.out.println("6. Список книг");
-                    bookManager = new BookManager();
                     bookManager.printListBooks(books);
                     break;
                 case 7:
                     System.out.println("7. Список читателей");
-                    readerManager = new ReaderManager();
                     readerManager.printListReader(readers);
                     break;
                 case 8:
-                    System.out.println("8. Редактировать книгу");
                     this.books = bookManager.changeBook(books);
                     break;
                 default:
-                    System.out.println("Выберите задачу из списка!");
+                    System.out.println("Выберите задачу из списка!");;
             }
-        } while (repeat);
-        System.out.println("Закрытие программы, досвидания!");
+        }while(repeat);
+        System.out.println("Закрытие программы, пока!");
+    }
+
+    private void addBook(Book book) {
+        this.books = Arrays.copyOf(this.books, this.books.length+1);
+        this.books[this.books.length - 1] = book;
+    }
+    private void addReader(Reader reader) {
+        this.readers = Arrays.copyOf(this.readers, this.readers.length+1);
+        this.readers[this.readers.length - 1] = reader;
+    }
+    private void addHistory(History histories) {
+        this.histories = Arrays.copyOf(this.histories, this.histories.length+1);
+        this.histories[this.histories.length - 1] = histories;
     }
 }
-
-
-
-
